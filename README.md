@@ -8,7 +8,7 @@
 
 	2. Agregar usuario: "usermod -aG sudo {usuario}"
 
-	3. Volver a iniciar sesión con {usuario}.
+	3. Reiniciar el OS.
 
 2. Configurar con Gnome Tweaks:
 
@@ -182,6 +182,27 @@
 		```sh
 		gh auth login
 		```
+## Google Chrome
+
+* Debian 12:
+	```sh
+ 	sudo apt install apt-transport-https curl -y
+  	```
+ 
+ 	```sh
+	curl -fSsL https://dl.google.com/linux/linux_signing_key.pub | sudo gpg --dearmor | sudo tee /usr/share/keyrings/google-chrome.gpg >> /dev/null 	```
+
+   	```sh
+  	echo deb [arch=amd64 signed-by=/usr/share/keyrings/google-chrome.gpg] http://dl.google.com/linux/chrome/deb/ stable main | sudo tee /etc/apt/sources.list.d/google-chrome.list
+	```
+	> Si zsh no ejecutó el comando anterior, usar bash.
+	```sh
+	sudo apt update
+	```
+ 	```sh
+ 	sudo apt install google-chrome-stable -y
+	```
+
 # Útiles
 ## Nano
 * Mostrar número de línea en nano:
